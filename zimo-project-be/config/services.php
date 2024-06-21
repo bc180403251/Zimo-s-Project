@@ -14,6 +14,18 @@ return [
     |
     */
 
+//    'firebase' => [
+//        'credentials' => [
+//            'file' => env('FIREBASE_CREDENTIALS')
+//        ],
+    'firebase' =>[
+        'credentials'=>[
+            'file' => env('FIREBASE_CREDENTIALS')
+        ]
+
+    ],
+
+
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
     ],

@@ -33,7 +33,8 @@
 <body>
 <div class="sidebar">
     <h3 class="text-center text-white">Dashboard</h3>
-    <a href="#home">Home</a>
+    <a href="{{url(route('create'))}}">Companies</a>
+    <a href="{{url(route('List'))}}">List Of Companies</a>
     <a href="#profile">Profile</a>
     <a href="#settings">Settings</a>
     <a href="#logout">Logout</a>
@@ -44,7 +45,7 @@
         <p>Welcome to the home section of your dashboard.</p>
     </div>
     <div id="profile" class="section">
-        <h1>Profile</h1>
+        <h1>company</h1>
         <p>Manage your profile information here.</p>
     </div>
     <div id="settings" class="section">

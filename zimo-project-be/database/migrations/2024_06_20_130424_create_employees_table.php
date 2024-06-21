@@ -12,12 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('employees', function (Blueprint $table) {
-            $table->uuid()->primary();
+            $table->uuid('id')->primary();
             $table->String('first_name');
             $table-> String('last_name');
             $table-> String('email');
             $table -> String('phone');
             $table -> String('gender');
+            $table -> softDeletes('deleted_at');
+            $table ->uuid('company_id');
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->timestamps();
 
