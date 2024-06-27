@@ -1,4 +1,3 @@
-
 @extends('layouts.default')
 @section('title','Update Employee')
 @section('content')
@@ -9,16 +8,15 @@
                     <div class="card-header">Update Employee</div>
 
                     <div class="card-body">
-                        <form action="{{route('update', $employee->id)}}" method="POST">
+                        <form action="{{ url('updateEmployee', $employee->id) }}" method="POST">
                             @csrf
-                            @method('PUT')
+                            @method('PATCH')
 
                             <div class="form-group">
                                 <input type="text" placeholder="First Name" class="form-control" id="first_name" name="first_name" value="{{ old('first_name', $employee->first_name) }}" required>
                             </div>
 
                             <div class="form-group mt-3">
-
                                 <input type="text" placeholder="Last Name" class="form-control" id="last_name" name="last_name" value="{{ old('last_name', $employee->last_name) }}" required>
                             </div>
 
@@ -31,7 +29,6 @@
                             </div>
 
                             <div class="form-group mt-3">
-
                                 <select class="form-control" id="gender" name="gender" required>
                                     <option value="male" {{ old('gender', $employee->gender) == 'male' ? 'selected' : '' }}>Male</option>
                                     <option value="female" {{ old('gender', $employee->gender) == 'female' ? 'selected' : '' }}>Female</option>
@@ -39,7 +36,6 @@
                                 </select>
                             </div>
                             <div class="form-group mt-3">
-                                {{--                                <label for="company_id">Company</label>--}}
                                 <select name="company_id" class="form-control" >
                                     <option value="">Select Company</option>
                                     @foreach($companies as $company)

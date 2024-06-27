@@ -20,23 +20,7 @@ class Company extends Model
 
     ];
 
-    public $incrementing=false;
-    public $keyType='uuid';
 
-
-    protected static function boot()
-    {
-
-        parent::boot();
-
-        static::creating(function ($modal){
-            if(empty($modal->{$modal->getKeyName()})){
-                $modal->{$modal->getKeyName()}= (string) str::uuid();
-
-            }
-        });
-
-    }
 
 
     public function employees()

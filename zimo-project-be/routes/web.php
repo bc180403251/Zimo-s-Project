@@ -18,7 +18,10 @@ Route::middleware(CheckUserType::class)->group(function (){
 
 Route::get('createCompany',[CompanyController::class, 'create'])->name('create')->middleware(CheckUserType::class);
 Route::post('createCompany',[CompanyController::class , 'store'])->name('storeCompany')->middleware(CheckUserType::class);
-Route::get('ListOfCompaines', [CompanyController::class ,'index'])->middleware(CheckUserType::class)->name('List');
+Route::middleware(CheckUserType::class)->group(function (){
+    Route::get('listOfCompanies',[CompanyController::class, 'index'])->name('company');
+    Route::get('company-data',[CompanyController::class, 'getCompanies']);
+});
 
 
 //Employees Routes
@@ -29,16 +32,16 @@ Route::post('createEmployee',[EmployeeController::class, 'store'])->name('create
 Route::get('employes/datatables',[EmployeeController::class, 'datatables'])->name('employees.datatable')->middleware(CheckUserType::class);
 Route::delete('destroyEmployee/{id}', [EmployeeController::class, 'destroy'])->name('delete')->middleware(CheckUserType::class);
 Route::get('updateEmployee/{id}',[EmployeeController::class ,'edit'])->name('update')->middleware(CheckUserType::class);
-Route::put('updateEmployee/{id}',[EmployeeController::class, 'update'])->name('update')->middleware(CheckUserType::class);
+Route::patch('updateEmployee/{id}',[EmployeeController::class, 'update'])->name('employeeUpdate')->middleware(CheckUserType::class);
 Route::get('viewEmployee/{id}', [EmployeeController::class, 'show'])->name('view')->middleware(CheckUserType::class);
 Route::middleware(CheckUserType::class)->group(function (){
     Route::get('/listOfEmployees',[EmployeeController::class, 'index'])->name('employeelist');
-    Route::get('employee-data',[EmployeeController::class, 'getEmployee'])->name('employee.data');
+    Route::get('employee-data',[EmployeeController::class, 'getEmployee'])->name('employee-list');
 });
 
 
 
 // Auth Routes
-Route::get('login',[authController::class, 'login']);
+Route::get('/',[authController::class, 'login']);
 
 Route::post('loginPost', [authController::class, 'loginPost'])->name('login.post');

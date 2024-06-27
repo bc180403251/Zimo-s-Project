@@ -20,7 +20,7 @@
                                 </ul>
                             </div>
                         @endif
-                        <form method="POST" action= {{route('storeCompany')}} >
+                        <form enctype="multipart/form-data" method="POST" action= {{route('storeCompany')}} >
                             @csrf
                             <div class="form-group mb-3">
                                 <input type="text" placeholder="Name" id="name" class="form-control" name="name"  required>
@@ -29,7 +29,7 @@
                                 <input type="email" placeholder="Email" id="email" class="form-control" name="email" required>
                             </div>
                             <div class="form-group mb-3">
-                                <input type="file" id="MyFile" class="form-control"  name="filename">
+                                <input type="file" id="logo" class="form-control"  name="logo">
                             </div>
                             <div class="d-grid mx-auto">
                                 <button type="submit" class="btn btn-dark btn-block">Create Company</button>

@@ -1,54 +1,60 @@
 @extends('layouts.default')
-
-@section('title', 'Companies')
+@section('title','Employee List')
 
 @section('content')
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-12">
-                @if(session('success'))
-                    <div class="alert alert-success">
-                        {{ session('success') }}
-                    </div>
-                @endif
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Companies</h3>
-                    </div>
-                    <div class="card-body">
-                        <table class="table table-bordered">
-                            <thead>
-                            <tr>
-                                <th>Sr#</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Logo</th>
-                                <th>Actions</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($companies as $index => $company)
-                                <tr>
-                                    <td>{{ $index + 1 }}</td>
-                                    <td>{{ $company->name }}</td>
-                                    <td>{{ $company->email }}</td>
-                                    <td><img src="{{ $company->logo }}" alt="Logo" width="50"></td>
-                                    <td>
-                                        <a href="" class="btn btn-info btn-sm">View</a>
-                                        <a href="" class="btn btn-primary btn-sm">Edit</a>
-                                        <form action="" method="POST" style="display:inline;">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this company?');">Delete</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="container">
+
+        <h2>Company list</h2>
+        <table class="company-listing  table  table-bordered table-striped table-hover">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>name</th>
+                <th>Email</th>
+                <th>Logo</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+        </table>
     </div>
 @endsection
+
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js" defer></script>
+
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap4.min.js" defer></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap4.min.css">
+
+
+<script type="text/javascript">
+
+    $(function () {
+        setTimeout(function () {
+            var table = $('.company-listing').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url :"{{ url('company-data') }}",
+                },
+
+                columns: [
+                    {data: 'id', name: 'id'},
+                    {data: 'name', name: 'name'},
+                    {data: 'email', name: 'email'},
+                    {data: 'logo', name: 'logo'},
+                    {data: 'action', name: 'action',
+                        orderable: false,
+                        searchable: false,
+                        className: 'text-center',},
+
+                ],
+
+            });
+        }, 2000);
+    });
+</script>
+
+
+
+
+

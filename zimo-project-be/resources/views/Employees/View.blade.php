@@ -44,7 +44,7 @@
 {{--                                </select>--}}
 {{--                            </div>--}}
 
-                            <a href="{{ route('List') }}" class="btn btn-dark d-block w-100 mt-3">Back to List</a>
+                            <a href="{{ route('employeelist') }}" class="btn btn-dark d-block w-100 mt-3">Back to List</a>
 
                         </form>
                     </div>

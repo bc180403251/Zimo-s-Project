@@ -48,7 +48,7 @@
 <div class="sidebar">
     <h3 class="text-center text-white">Dashboard</h3>
     <a href="{{ url(route('create')) }}">Companies</a>
-    <a href="{{ url(route('List')) }}">List Of Companies</a>
+    <a href="{{ url(route('company')) }}">List Of Companies</a>
     <a href="{{ url(route('createEmployee')) }}">Create Employee</a>
     <a href="{{ url(route('employeelist')) }}">Employees List</a>
     <a href="#logout">Logout</a>

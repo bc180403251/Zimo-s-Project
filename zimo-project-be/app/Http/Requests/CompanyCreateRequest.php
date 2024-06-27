@@ -25,6 +25,7 @@ class CompanyCreateRequest extends FormRequest
             //
             'name'=>'required|String|max:255',
             'email'=> 'required|email',
+            'logo'=> 'required|'
         ];
     }
 }

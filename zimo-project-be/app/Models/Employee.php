@@ -24,23 +24,10 @@ class Employee extends Model
     ];
 
 
-    public $incrementing=false;
-    public $keyType='uuid';
 
 
-    protected static function boot()
-    {
 
-        parent::boot();
 
-        static::creating(function ($modal){
-            if(empty($modal->{$modal->getKeyName()})){
-                $modal->{$modal->getKeyName()}= (string) str::uuid();
-
-            }
-        });
-
-    }
 
     public static  function calculatePercentage($numberOfGender, $totalEmployees)
     {

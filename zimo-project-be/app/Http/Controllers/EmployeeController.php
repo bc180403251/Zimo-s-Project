@@ -40,8 +40,31 @@ class EmployeeController extends Controller
 
     public function getEmployee()
     {
-        $employees = Employee::query();
-            return DataTables::of($employees)->make(true);
+
+        $data=Employee::with('company')->select('employees.*');
+//        dd($data);
+
+//        foreach ($data as $dat){
+//            dd($dat->first_name);
+//        }
+        return DataTables::of($data)
+            ->addIndexColumn()
+            ->addColumn('company_name', function ($row){
+                return $row->company ? $row->company->name :'N/A';
+            })
+            ->addColumn('action', function($row){
+                $viewUrl=route('view', $row->id);
+                $editUrl=route('update', $row->id);
+//                $viewUrl=route('update', $row->id);
+
+
+                $btn = '<a href="'.$viewUrl.'" class="btn btn-info btn-sm">View</a> ';
+                $btn .= '<a href="'.$editUrl.'" class="btn btn-primary btn-sm">Edit</a> ';
+                $btn .= '<button data-id="'.$row->id.'" class="btn btn-danger btn-sm delete-btn">Delete</button>';
+                return $btn;
+            })
+            ->rawColumns(['action'])
+            ->make(true);
     }
 
 
@@ -119,19 +142,30 @@ return redirect()->route('employeelist')->with('success','Employee created Succe
      */
     public function update(UpdateEmployeeRequest $request, string $id)
     {
-        //
+        // Retrieve the validated input data
+        $validated = $request->validated();
 
-        $request=$request->all();
+        // Find the employee by ID
+        $employee = Employee::find($id);
+//        dd($employee);
 
-        $employee= Employee::find($id);
+        // Check if employee exists
+        if ($employee) {
+            // Update the employee with validated data
+            try {
+                $updated = $employee->update($validated);
 
-        if($employee){
-
-            $employee->update($request);
-
-            return redirect()->route('List')->with('success', 'Employee Updated Successfully!');
-
+                if ($updated) {
+                    return redirect()->route('employeelist')->with('success', 'Employee Updated Successfully!');
+                }
+            } catch (\Exception $e) {
+                // Handle the exception
+                return redirect()->back()->with('error', 'An error occurred: ' . $e->getMessage());
+            }
         }
+
+        // Redirect back with an error message if the employee is not found
+        return redirect()->back()->with('error', 'Employee not found.');
     }
 
     /**
@@ -148,7 +182,7 @@ return redirect()->route('employeelist')->with('success','Employee created Succe
 //        dd($employee);
         $employee->delete();
 
-        return redirect()->back()->with('success', 'Employees deleted Successfully!');
+        return response()->json('success', 'Employees deleted Successfully!');
 
     }
 
@@ -177,7 +211,7 @@ return redirect()->route('employeelist')->with('success','Employee created Succe
             if($data->gender==='female'){
                 $female[]=$data->gender;
             };
-            if($data->gender==='others'){
+            if($data->gender==='other'){
                 $others[]=$data->gender;
             };
 
