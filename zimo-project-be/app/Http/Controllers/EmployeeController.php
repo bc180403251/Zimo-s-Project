@@ -38,15 +38,18 @@ class EmployeeController extends Controller
         return view('employees.List');
     }
 
-    public function getEmployee()
+    public function getEmployee(Request $request)
     {
 
         $data=Employee::with('company')->select('employees.*');
 //        dd($data);
 
-//        foreach ($data as $dat){
-//            dd($dat->first_name);
-//        }
+      if($request->from_date){
+          $data->whereDate('created_at','>=', $request->from_date);
+      }
+       if ($request->to_date) {
+        $data->whereDate('created_at', '<=', $request->to_date);
+    }
         return DataTables::of($data)
             ->addIndexColumn()
             ->addColumn('company_name', function ($row){
@@ -176,13 +179,14 @@ return redirect()->route('employeelist')->with('success','Employee created Succe
         // Find an Employee  for deleting it
 
         $employee=Employee::find($id);
-        if(!$employee){
-            return redirect()->back()->withErrors('error', 'Employee is not found');
-        }
-//        dd($employee);
+
+      if($employee){
         $employee->delete();
 
-        return response()->json('success', 'Employees deleted Successfully!');
+        return response()->json(['success'=> true]);
+      }
+        return response()->json(['success'=> false]);
+
 
     }
 

@@ -16,8 +16,15 @@ Route::middleware(CheckUserType::class)->group(function (){
 });
 //Route::get('/dashboard',[EmployeeController::class ,'showDashboard'])->name('api.employee-stats')->middleware(CheckUserType::class);
 
+
+// Company Routes
+
 Route::get('createCompany',[CompanyController::class, 'create'])->name('create')->middleware(CheckUserType::class);
 Route::post('createCompany',[CompanyController::class , 'store'])->name('storeCompany')->middleware(CheckUserType::class);
+Route::get('viewCompany/{id}',[CompanyController::class , 'show'])->name('viewCompany')->middleware(CheckUserType::class);
+Route::get('updateCompany/{id}',[CompanyController::class , 'edit'])->name('companyUpdate')->middleware(CheckUserType::class);
+Route::patch('updateCompany/{id}',[CompanyController::class , 'update'])->name('updateCompany')->middleware(CheckUserType::class);
+Route::delete('deleteCompany/{id}',[CompanyController::class , 'destroy'])->name('deleteCompany')->middleware(CheckUserType::class);
 Route::middleware(CheckUserType::class)->group(function (){
     Route::get('listOfCompanies',[CompanyController::class, 'index'])->name('company');
     Route::get('company-data',[CompanyController::class, 'getCompanies']);

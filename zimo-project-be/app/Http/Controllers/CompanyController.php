@@ -3,24 +3,49 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CompanyCreateRequest;
+use App\Http\Requests\UpdateCompanyRequest;
 use App\Models\Company;
+use GPBMetadata\Google\Api\Log;
 use Illuminate\Http\Request;
 use Kreait\Firebase\Factory;
+use mysql_xdevapi\Exception;
 use Yajra\DataTables\DataTables;
+use function Laravel\Prompts\error;
 
 class CompanyController extends Controller
 {
 
-//    protected $Storage;
+    private function uploadLogoToFirebase($file)
+    {
+        try{
+            $bucket = app('firebase')->getBucket();
 
-//    public function __construct()
-//    {
+        ;
+//            dd($file);
+//            dd($file);
+            $filePath = 'updatedLogos/' . $file->getClientOriginalName();
+
+
+            $bucket->upload(file_get_contents($file), [
+                'name' => $filePath
+            ]);
+//            dd($bucket);
+
+            // Get the image URL
+            $imageReference = $bucket->object($filePath);
+           $url= $imageReference->signedUrl(now()->addMinutes(5));
+//           dd($url);
 //
-//        $firebase= app('firebase');
-//        $this->Storage= $firebase->createStorage();
-//
-//
-//    }
+           return  $url;
+
+        }catch (\Exception $e){
+
+
+            return  response()->json(['error'=> $e->getMessage()]);
+        }
+
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -35,17 +60,30 @@ class CompanyController extends Controller
 
 //    get all company data
 
-public function getCompanies()
+public function getCompanies(Request $request)
 {
-    $data=Company::all();
-    $data = Company::all();
+
+    $data = Company::select('companies.*');
+
+    if ($request->from_date) {
+        $data->whereDate('created_at', '>=', $request->from_date);
+    }
+
+    if ($request->to_date) {
+        $data->whereDate('created_at', '<=', $request->to_date);
+    }
 
     return DataTables::of($data)
+
+
         ->addIndexColumn()
         ->addColumn('action', function($row){
-            $btn = '<a href="view/'.$row->id.'" class="btn btn-info btn-sm">View</a> ';
-            $btn .= '<a href="edit/'.$row->id.'" class="btn btn-primary btn-sm">Edit</a> ';
-            $btn .= '<a href="delete/'.$row->id.'" class="btn btn-danger btn-sm">Delete</a>';
+            $editUrl=route('companyUpdate', $row->id);
+            $viewUrl=route('viewCompany', $row->id);
+
+            $btn = '<a href="'.$viewUrl.'" class="btn btn-info btn-sm">View</a> ';
+            $btn .= '<a href="'.$editUrl.'" class="btn btn-primary btn-sm">Edit</a> ';
+            $btn .= '<button data-id="'.$row->id.'" class="btn btn-danger btn-sm delete-btn">Delete</button>';;
             return $btn;
         })
         ->rawColumns(['action'])
@@ -98,7 +136,7 @@ public function getCompanies()
 
             $company->save();
 
-            return redirect()->route('dashboard');
+            return redirect()->route('company');
         }
 
         return 'request has no file';
@@ -110,6 +148,13 @@ public function getCompanies()
     public function show(string $id)
     {
         //
+        $company=Company::find($id);
+        if(!$company){
+            redirect()->back()->withErrors('error', 'Company is not Found');
+        }
+
+        return view('companies.view', compact('company'));
+
     }
 
     /**
@@ -120,15 +165,50 @@ public function getCompanies()
         //
         $company=Company::find($id);
 
-        return view('Companies.updateCompany', compact('company'));
+        $logoUrl=$company->logo;
+//        dd($logoUrl);
+
+        return view('Companies.updateCompany', compact('company', 'logoUrl'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateCompanyRequest $request, string $id)
     {
-        //
+
+        $validated = $request->validated();
+//        $logoUrl= null;
+        //validate the request
+        if($request->hasFile('logo')){
+//            dd($request->file('logo'));
+            $file=$request->file('logo');
+
+            $logoUrl= $this->uploadLogoToFirebase($file);
+//            dd($logoUrl);
+
+            $company=Company::find($id);
+
+            $company->update([
+                'name'=>$validated['name'],
+                'email'=> $validated['email'],
+                'logo'=> $logoUrl
+            ]);
+
+            return redirect()->route('company');
+//            return response()->json(['file' => $request->file('logo'), 'url' => $logoUrl]);
+
+        }
+
+        $company=Company::find($id);
+
+        $company->update([
+            'name'=>$validated['name'],
+            'email'=> $validated['email'],
+        ]);
+
+        return redirect()->route('company');
+
     }
 
     /**
@@ -136,10 +216,17 @@ public function getCompanies()
      */
     public function destroy(string $id)
     {
-        //
+        // find company and deleting it
+        $company=Company::find($id);
+
+        if($company){
+            $company->delete();
+
+            return response()->json(['success'=> true]);
+        }
+        return response()->json(['success'=> false]);
     }
 
-//   proivde data to dashbaoard
 
 
 }

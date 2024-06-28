@@ -9,7 +9,8 @@ use Illuminate\Support\Str;
 
 class Company extends Model
 {
-    use HasFactory; use SoftDeletes;
+    use HasFactory;
+    use SoftDeletes;
 
     protected $dates= ['deleted_at'];
 

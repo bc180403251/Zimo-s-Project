@@ -36,13 +36,7 @@
                             <div class="form-group mt-3">
                                 <input type="text" name="company" placeholder="Company" class="form-control" value="{{ old('company-id', $employee->company->name) }}" required autofocus disabled>
                             </div>
-{{--                            <div class="form-group mt-3">--}}
-{{--                                <select name="company_id" class="form-control" disabled>--}}
-{{--                                    <option value="">Select Company</option>--}}
-{{--                                        <option value="{{ $company->id }}" {{ old('company_id', $employee->company_id) == $company->id ? 'selected' : '' }}>{{ $company->name }}</option>--}}
 
-{{--                                </select>--}}
-{{--                            </div>--}}
 
                             <a href="{{ route('employeelist') }}" class="btn btn-dark d-block w-100 mt-3">Back to List</a>
 
