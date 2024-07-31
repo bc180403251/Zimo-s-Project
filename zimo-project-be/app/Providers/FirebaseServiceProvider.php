@@ -17,18 +17,7 @@ class FirebaseServiceProvider extends ServiceProvider
             //
             $this->app->singleton('firebase', function ($app) {
                 $credentials = (__DIR__.'/Credentials.json');
-//                $credentials= env('FIREBASE_CREDENTIALS');
-    //            dd($credentials);
-//                $projctID= Config('firebase.project_id');
 
-//                dd([
-//                    'credentials' => $credentials,
-//                    'project_id' => $projctID
-//                ]);
-
-//                if (!is_string($credentials) || !is_string($projctID)) {
-//                    throw new \InvalidArgumentException('Invalid Firebase configuration');
-//                }
     //
                $factory= (new Factory)
                     ->withServiceAccount($credentials);

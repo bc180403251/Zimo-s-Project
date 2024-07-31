@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\DataTables\EmployeesDataTable;
 use App\Http\Requests\EmployeeCreateRequest;
 use App\Http\Requests\UpdateEmployeeRequest;
+use App\Mail\ZFTRMail;
 use App\Models\Company;
 use App\Models\Employee;
 use Illuminate\Http\JsonResponse;
@@ -233,7 +234,7 @@ return redirect()->route('employeelist')->with('success','Employee created Succe
 
 
 
-//        dd($totalemployee,$femalePercentage, $malePercentage, $othersPercentage);
+
        if($req->ajax()) {
             return response()->json([
                 'employees' => $employees,
@@ -243,5 +244,13 @@ return redirect()->route('employeelist')->with('success','Employee created Succe
             ]);
         }
         return view('Dashboard.welcome', compact('employees', 'femalePercentage','malePercentage','othersPercentage'));
+    }
+
+
+    public function testmail(Request $request)
+    {
+
+
+        Mail::to($request->input('email'))->send(new ZFTRMail());
     }
 }

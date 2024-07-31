@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <style>
+        @font-face {
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/Lato/Lato-Bold.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/Lato/Lato-Regular.ttf') format('truetype');
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Lato', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: 600;
+            /* border: 2px solid red; */
+        }
+
+        main {
+            max-width: 600px;
+            margin: auto;
+            padding-left: 10px;
+            padding-right: 10px;
+            /* padding-top: 20px; */
+            padding-bottom: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .white {
+            color: white !important;
+        }
+        .f-13{
+            font-size: 13px;
+        }
+
+        .f-12 {
+            font-size: 12px;
+        }
+
+        .f-10 {
+            font-size: 10px;
+        }
+
+        .f-8 {
+            font-size: 8px;
+        }
+
+        .f-6 {
+            font-size: 7px;
+            opacity: 50%;
+        }
+
+        .spacing {
+            letter-spacing: 1.3px;
+            line-height: 15px;
+        }
+
+        .spacing-1 {
+            letter-spacing: 1px;
+            line-height: 15px;
+        }
+
+        .uppercase {
+            text-transform: uppercase;
+        }
+
+        .text-width {
+            max-width: 550px;
+            margin: auto;
+        }
+
+        .m-60 {
+            margin-top: 60px;
+        }
+
+        .m-50 {
+            margin-top: 45px;
+        }
+
+        .m-20 {
+            margin-top: 20px;
+        }
+
+        .italic {
+            font-style: italic;
+        }
+
+        .bold {
+            font-weight: bold;
+            text-shadow: 0 0 0px .8px black;
+        }
+
+        .regular {
+            font-weight: normal;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .end {
+            text-align: end;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        td {
+            width: 50%;
+            position: relative;
+        }
+
+        .black-bar {
+            background: black;
+            width: 100%;
+            padding: 35px 35px 20px;
+        }
+
+        .start-adv-logo {
+            height: 40px;
+            margin: auto;
+            text-align: start;
+        }
+
+        .middle-adv-logo {
+            height: 40px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .last-adv-logo {
+            height: 40px;
+            margin: auto;
+            text-align: end;
+        }
+
+        .header-mail {
+            color: white;
+            text-align: end;
+            margin-top: 10px;
+            letter-spacing: .8px;
+        }
+
+        /* expalnation */
+
+        .explanation-container {
+            width: 100%;
+            text-align: center;
+        }
+
+        .zvctext {
+            margin: auto;
+            margin-top: 60px;
+            margin-bottom: 55px;
+            /* letter-spacing: 40px; */
+            font-size: 30px;
+            text-align: center;
+            /* border: 2px solid black; */
+        }
+
+        .zvctext span {
+            padding: 0px 21px;
+        }
+
+        .footer-first-logo {
+            display: flex;
+            margin-top: 100px;
+            margin-bottom: 60px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .footer-second-logo {
+            display: flex;
+            margin-bottom: 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo-container {
+            display: flex;
+            margin: auto;
+        }
+
+        .footer-logo {
+            height: 30px;
+            margin: 5px 30px;
+        }
+
+        .copy {
+            padding: 6px 6px 0px;
+        }
+
+        .footer-2-logo {
+            margin: auto;
+            height: 10px;
+        }
+
+        .copyright_text {
+            max-width: 500px;
+            line-height: 10px;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        @media only screen and (max-width: 550px) {
+            main {
+                max-width: 600px;
+                margin: 0;
+                padding-left: 0px;
+                padding-right: 0px;
+                padding-bottom: 0px;
+            }
+
+            .container {
+                max-width: 600px;
+                margin: 0;
+            }
+            .f-13{
+                font-size: 11px;
+
+            }
+
+            .f-12 {
+                font-size: 10px;
+            }
+
+            .f-10 {
+                font-size: 8px;
+            }
+
+            .f-8 {
+                font-size: 7px;
+            }
+
+            .f-6 {
+                font-size: 4px;
+                opacity: 50%;
+            }
+
+            .spacing {
+                letter-spacing: 1px;
+                line-height: 13px;
+            }
+
+            .spacing-1 {
+                letter-spacing: 1px;
+                line-height: 12px;
+            }
+
+            .uppercase {
+                text-transform: uppercase;
+            }
+
+            .zvctext {
+                margin-top: 50px;
+                margin-bottom: 40px;
+                font-size: 25px;
+            }
+
+            .zvctext span {
+                padding: 0px 16px;
+            }
+
+            .text-width {
+                max-width: 430px;
+            }
+
+            .m-60 {
+                margin-top: 50px;
+            }
+
+            .m-50 {
+                margin-top: 40px;
+            }
+
+            .m-20 {
+                margin-top: 15px;
+            }
+
+            .black-bar {
+                background: black;
+                width: 100%;
+                padding: 35px 30px 15px;
+            }
+
+            .start-adv-logo {
+                height: 35px;
+            }
+
+            .middle-adv-logo {
+                height: 35px;
+            }
+
+            .last-adv-logo {
+                height: 35px;
+                margin: auto;
+                text-align: end;
+            }
+
+            /* expalnation */
+            .explanation-container {
+                width: 100%;
+            }
+
+            .nda-logo {
+                width: 145px;
+            }
+
+            .footer-first-logo {
+                margin-top: 90px;
+                margin-bottom: 60px;
+            }
+
+            .footer-second-logo {
+                margin-bottom: 15px;
+            }
+
+            .footer-2-logo {
+                margin: auto;
+                height: 10px;
+            }
+
+            .footer-logo {
+                height: 24px;
+                margin: 3px 20px;
+            }
+
+            .copy {
+                padding: 4px 4px 0px;
+            }
+
+            .copyright_text {
+                max-width: 450px;
+                line-height: 10px;
+                margin-top: 20px;
+            }
+        }
+
+        @media only screen and (max-width: 450px) {
+            main {
+                margin: 0;
+                padding-left: 0px;
+                padding-right: 0px;
+                padding-bottom: 0px;
+            }
+
+            .container {
+                margin: 0;
+            }
+            .f-13{
+                font-size: 10px;
+            }
+
+            .f-12 {
+                font-size: 9px;
+            }
+
+            .f-10 {
+                font-size: 7px;
+            }
+
+            .f-8 {
+                font-size: 6px;
+            }
+
+            .f-6 {
+                font-size: 4px;
+            }
+
+            .spacing {
+                letter-spacing: 1px;
+                line-height: 10px;
+            }
+
+            .zvctext {
+                margin-top: 40px;
+                margin-bottom: 35px;
+                font-size: 20px;
+            }
+
+            .zvctext span {
+                padding: 0px 15px;
+            }
+
+            .spacing-1 {
+                letter-spacing: .5px;
+                line-height: 10px;
+            }
+
+            .text-width {
+                max-width: 330px;
+            }
+
+            .m-60 {
+                margin-top: 35px;
+            }
+
+            .m-50 {
+                margin-top: 30px;
+            }
+
+            .m-20 {
+                margin-top: 10px;
+            }
+
+            .black-bar {
+                background: black;
+                width: 100%;
+                padding: 28px 20px 13px;
+            }
+
+            .start-adv-logo {
+                height: 25px;
+            }
+
+            .middle-adv-logo {
+                height: 25px;
+            }
+
+            .last-adv-logo {
+                height: 25px;
+            }
+
+            /* expalnation */
+            .nda-logo {
+                width: 110px;
+            }
+
+            .footer-first-logo {
+                margin-top: 70px;
+                margin-bottom: 40px;
+            }
+
+            .footer-logo {
+                height: 18px;
+                margin: 3px 8px;
+            }
+
+            .footer-second-logo {
+                margin-bottom: 10px;
+            }
+
+            .footer-2-logo {
+                height: 8px;
+            }
+
+            .copy {
+                padding: 5px 4px 0px;
+            }
+
+            .copyright_text {
+                max-width: 350px;
+                line-height: 10px;
+                margin-top: 18px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <main>
+        <div class="container">
+
+            <div class="top-bar black-bar">
+                <table>
+                    <tr>
+                        <td class="left-part">
+                            <div class="start-adv-logo">
+
+                                <img src="https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/country%2Fzaremailimage%2Fzimomeetzvc%2FZIMO%20MEET%20masked%20W.png?alt=media&token=284d2cf1-ada6-43a3-8847-25e81e2b679a"
+                                    alt="" height="100%">
+                            </div>
+                        </td>
+                        <td class="middle-part">
+                            <div class="middle-adv-logo">
+
+                                <img src="https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/country%2Fzaremailimage%2Fzimomeetzvc%2FZM%20W.png?alt=media&token=11447d70-050f-4de7-b6be-1b1ad131fe33"
+                                    alt="" height="100%">
+                            </div>
+
+                        </td>
+                        <td class="last-part">
+                            <div class="last-adv-logo">
+                                <img src="https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/country%2Fzaremailimage%2Fzimomeetzvc%2FZIMO%20User%20Icon%20W.png?alt=media&token=80dc83fc-5014-4597-b349-c70b7c26804c"
+                                    alt="" height="100%">
+                            </div>
+
+                        </td>
+                    </tr>
+                </table>
+                <p class="header-mail f-10" style="color:white !important;">
+                    abc@gmail.com
+                </p>
+            </div>
+
+            <!-- explanation -->
+
+            <div class="explanation-container">
+
+                <p class="f-13 uppercase spacing m-50 bold">RESET YOUR PASSWORD</p>
+
+                <p class="f-12 uppercase spacing m-50 bold ">
+                    [mohsan ali]
+<!--                    {{ @$first_name }} {{ @$last_name }}-->
+                </p>
+
+                <p class="f-10 uppercase spacing-1 m-20 regular text-width">
+                    we have received a password reset request for your user id.
+                </p>
+
+                <p class="f-10 uppercase spacing-1 m-20 regular text-width">
+                    here is your temporary user id password
+                </p>
+
+
+                <p class=" uppercase spacing  bold text-width zvctext">
+                    Ajk2PagYkE39!3WzX71*
+<!--                    @foreach (str_split($zvc) as $digit)-->
+<!--                        <span>{{ $digit }}</span>-->
+<!--                    @endforeach-->
+                </p>
+                <p class="f-10 uppercase spacing-1 m-20 regular text-width">
+                    your temporary user id password will expire in 24hrs.
+                </p>
+
+
+                <p class="f-10 uppercase spacing-1 m-20 regular text-width">
+                    once you are signed into your user id account,
+                    <br>you will have the option to change your password.
+                </p>
+
+                <div class="footer-first-logo">
+                    <span class="logo-container">
+
+                        <a href="https://www.zimomeet.com/" class="footer-logo">
+                            <img src="https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/country%2Fzaremailimage%2Fzimomeetzvc%2FZIMO%20MEET.png?alt=media&token=8bc03d66-ae88-487e-bcde-2cc5401c366a"
+                                alt="Image not found" height="100%">
+                        </a>
+                        <a href="https://www.zimomeet.com/" class="footer-logo">
+                            <img src="https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/country%2Fzaremailimage%2Fzimomeetzvc%2FZM%20B.png?alt=media&token=efaf6b06-7ca7-4c17-961e-86480b864d0a"
+                                alt="Image not found" height="100%">
+
+                        </a>
+                    </span>
+                </div>
+
+
+            </div>
+
+            <div class="footer-second-logo">
+
+                <a href="https://www.zimomeet.com/" class="footer-2-logo">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/country%2Fzaremailimage%2Fzimomeetzvc%2FZIMOMEET%20Black.png?alt=media&token=da0f6aee-314f-46f9-baee-f8bee5ff1597"
+                        alt="Image not found" height="100%">
+                </a>
+            </div>
+            <div class="explanation-container ">
+
+                <span class="f-8 center regular copy spacing-1">COPYRIGHT © 2024</span>
+                <span class="f-8 center regular copy spacing-1">ZIMO GROUP LIMITED</span>
+                <span class="f-8 center regular copy spacing-1">ALL RIGHTS RESERVED.</span>
+
+            </div>
+
+            <p class="f-6   m-20 regular center  copyright_text">
+                This email is confidential and is intended for the addressee only. If you are not the addressee, please
+                delete the email and do not use it in any way. For security purposes and other lawful business purposes,
+                ZIMO GROUP monitors outgoing and incoming
+                emails and may monitor other telecommunications on its email and telecommunications systems; by replying
+                to this email you give your consent to such monitoring. This email and any files transmitted with it are
+                confidential and intended
+                solely for the use of the individual or entity to whom they are addressed. If you have received this
+                email in error please notify the system manager. This message contains confidential information and is
+                intended only for the individual
+                named. If you are not the named addressee you should not disseminate, distribute or copy this email.
+                Please notify the sender immediately by email if you have received this email by mistake and delete this
+                email from your system. If you
+                are not the intended recipient you are notified that disclosing, copying, distributing or taking any
+                action in reliance on the contents of this information is strictly prohibited.
+            </p>
+        </div>
+
+    </main>
+</body>
+
+</html>

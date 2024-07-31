@@ -78,8 +78,8 @@ public function getCompanies(Request $request)
 
         ->addIndexColumn()
         ->addColumn('action', function($row){
-            $editUrl=route('companyUpdate', $row->id);
-            $viewUrl=route('viewCompany', $row->id);
+            $editUrl=route('company.Update', $row->id);
+            $viewUrl=route('company.view', $row->id);
 
             $btn = '<a href="'.$viewUrl.'" class="btn btn-info btn-sm">View</a> ';
             $btn .= '<a href="'.$editUrl.'" class="btn btn-primary btn-sm">Edit</a> ';

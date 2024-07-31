@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <title>Welcome to the ZTFR</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/Lato/Lato-Bold.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/Lato/Lato-Regular.ttf') format('truetype');
+        }
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Lato', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: 600;
+        }
+        main {
+
+            max-width: 600px;
+            margin: 0 auto;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-bottom: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .spacing {
+            letter-spacing:1.3px;
+            line-height: 15px;
+        }
+        .f-15{
+            font-size: 25px;
+        }
+        .f-14{
+            font-size: 22px ;
+        }
+        .f-13{
+            font-size: 13px;
+        }
+
+        .f-12 {
+            font-size: 12px;
+        }
+
+        .f-10 {
+            font-size: 10px;
+        }
+
+        .f-8 {
+            font-size: 8px;
+        }
+
+        .f-6 {
+            font-size: 7px;
+            opacity: 50%;
+        }
+        .spacing {
+            letter-spacing:1.3px;
+            line-height: 15px;
+        }
+        .spacing-1{
+            letter-spacing: 1px;
+            line-height: 15px;
+        }
+        .uppercase {
+            text-transform: uppercase;
+        }
+        .bold {
+            font-weight: bold;
+            text-shadow: 0 0 0px .8px black;
+        }
+        .center{
+            text-align: center;
+        }
+        .start{
+            text-align: start;
+        }
+        .m-60 {
+            margin-top: 60px;
+        }
+
+        .m-50 {
+            margin-top: 45px;
+        }
+
+        .m-20 {
+            margin-top: 20px;
+        }
+        .copy {
+            padding: 6px 6px 0px;
+        }
+
+        .logo{
+            height: 20px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .header-mail{
+            color: black;
+            margin-top: 40px;
+           text-align: center;
+            letter-spacing: .8px;
+        }
+        .image-container{
+            height: 250px;
+            padding-top: 30px;
+            margin: auto;
+            text-align: center;
+        }
+        .share{
+            margin-left: 65px;
+        }
+
+        .table-container td{
+            padding:10px;
+        }
+        .big-img{
+            height: 300px;
+            padding-top: 30px;
+            margin: auto;
+            text-align: center;
+        }
+        .control-img{
+            height: 250px;
+            padding-top: 30px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .first-logo{
+            /*display: flex;*/
+            margin-top:100px ;
+
+            margin-right: 78px;
+            margin-left: 212px;
+            width: 100%;
+            text-align: center;
+        }
+        .second-logo{
+            /*display: flex;*/
+            /*margin-bottom: 20px;*/
+            margin-top: 132px;
+            width: 100%;
+            text-align: center;
+        }
+        .logo-container{
+            display: flex;
+            text-align: center;
+            align-items: center;
+            margin: auto;
+
+        }
+        .lock-container img{
+            margin-right: 5px;
+            vertical-align: middle;
+
+        }
+        .our-brand{
+            text-align: center;
+            margin-top: 20px;
+            position: relative;
+        }
+        .our-brand hr{
+            margin: auto;
+            width: 50%;
+        }
+        .brand-table{
+            display:inline-block;
+
+            margin: 20px auto;
+            /*text-align: center;*/
+            padding: 10px 0;
+            position: relative;
+        }
+        .brand-table div{
+            display: inline-block;
+            padding: 0 10px;
+
+        }
+        .footer-explanation{
+            width: 100%;
+            text-align: center;
+        }
+        .footer-first-logo{
+            text-align: center;
+            /*width: 50%;*/
+        }
+        .footer-second-logo{
+            text-align: center;
+        }
+
+        @media only screen and (max-width: 550px) {
+            main {
+                max-width: 600px;
+                margin: 0;
+                padding-left: 0px;
+                padding-right: 0px;
+                padding-bottom: 0px;
+            }
+
+            .container {
+                max-width: 600px;
+                margin: 0;
+            }
+
+            .f-15 {
+                font-size: 20px;
+            }
+            .f-14 {
+                font-size: 18px;
+            }
+            .f-13 {
+                font-size: 12px;
+            }
+            .f-12 {
+                font-size: 11px;
+            }
+            .f-10 {
+                font-size: 9px;
+            }
+            .f-8 {
+                font-size: 7px;
+            }
+            .image-container img {
+                height: auto;
+                max-width: 100%;
+            }
+            .big-img img {
+                height: auto;
+                max-width: 100%;
+            }
+            .control-img img {
+                height: auto;
+                max-width: 100%;
+            }
+            .first-logo {
+                margin-right: 20px;
+                margin-left: 20px;
+            }
+            .second-logo {
+                margin-top: 20px;
+            }
+            .logo-container {
+                flex-direction: column;
+            }
+            .share {
+                margin-left: 0;
+            }
+            .brand-table {
+                margin: 10px auto;
+            }
+            .brand-table div {
+                padding: 0 5px;
+            }
+            .footer-first-logo img, .footer-second-logo img {
+                height: auto;
+            }
+        }
+        @media only screen and (max-width: 450px) {
+            main {
+                margin: 0;
+                padding-left: 0px;
+                padding-right: 0px;
+                padding-bottom: 0px;
+            }
+
+            .container {
+                margin: 0;
+            }
+            .f-15 {
+                font-size: 18px;
+            }
+
+            .f-14 {
+                font-size: 16px;
+            }
+
+            .f-13 {
+                font-size: 11px;
+            }
+
+            .f-12 {
+                font-size: 10px;
+            }
+
+            .f-10 {
+                font-size: 8px;
+            }
+
+            .f-8 {
+                font-size: 6px;
+            }
+
+            .image-container img {
+                height: auto;
+                max-width: 100%;
+            }
+
+            .big-img img {
+                height: auto;
+                max-width: 100%;
+            }
+
+            .control-img img {
+                height: auto;
+                max-width: 100%;
+            }
+
+            .first-logo {
+                margin-right: 10px;
+                margin-left: 10px;
+            }
+
+            .second-logo {
+                margin-top: 10px;
+            }
+
+            .logo-container {
+                flex-direction: column;
+            }
+
+            .share {
+                margin-left: 0;
+            }
+
+            .brand-table {
+                margin: 5px auto;
+            }
+
+            .brand-table div {
+                padding: 0 3px;
+            }
+
+            .footer-first-logo img, .footer-second-logo img {
+                height: auto;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+  <main>
+      <div class="container">
+          <div class="header">
+            <div class="logo">
+              <img src="https://firebasestorage.googleapis.com/v0/b/zimo-ecomerce.appspot.com/o/ZTFR%2FGroup%206113.png?alt=media&token=f22bdd21-4a31-409b-93cf-0616de667bf0" alt="" height="100%">
+            </div>
+              <p class="header-mail f-13">[bill.gates@microsoft.com]</p>
+
+                     <p class="f-14 center spacing uppercase m-50">
+                         great your <img src="https://firebasestorage.googleapis.com/v0/b/zimo-ecomerce.appspot.com/o/ZTFR%2FGroup%206119.png?alt=media&token=82bf5e91-c6bf-4a07-bd41-5cb6eca652fa" alt="" height="80%">
+                          <br><br> user id is official
+                     </p>
+          </div>
+
+<!--          greetings-->
+          <div class="greeting-container">
+              <p class="f-12 m-50 spacing uppercase start">
+                  Hello [First Name, Last Name][(Organization Name)]
+              </p>
+              <p class="f-12 m-20 spacing uppercase start">
+                  It's OFFICIAL! Welcome to your new ZiTransfer User ID account. Now it’s super easier
+                   to get all your files where they need to be. unlimited and free!
+              </p>
+
+          </div>
+
+         <!--starting-->
+          <div class="starting_container">
+              <p class="f-8 m-20 spacing-1 uppercase start">let's get</p>
+              <p class="f-14 spacing-1 uppercase start">started</p>
+
+              <p class="f-12 m-20 spacing-1 uppercase start">
+                  with a ZTFR user id account you don't have to worry about verifying your email
+                  whenever you send a file. just drag and drop up to whopping 1tb and share everything
+                  and anything with a link, QR code, email, whatsapp, message, facebook, or X (twitter)
+              </p>
+              <div class="image-container">
+              <img src="https://firebasestorage.googleapis.com/v0/b/zimo-ecomerce.appspot.com/o/ZTFR%2Ffeatures.png?alt=media&token=6418446e-ed7a-44d2-b74a-0fbe66680b71" alt="" height="100%">
+              </div>
+          </div>
+          <div class="share-container">
+              <p class="f-15 m-50 spacing uppercase share">Share</p>
+              <div class="table-container m-20">
+                  <table>
+                      <tr>
+                          <td class="left-first">
+                              <div class="link-logo">
+
+                                  <img src="https://firebasestorage.googleapis.com/v0/b/zimo-ecomerce.appspot.com/o/ZTFR%2FGroup%206142.png?alt=media&token=a0d8c87d-2d2b-4ad4-bc1d-957f6f93062a"
+                                       alt="" height="100%">
+                              </div>
+                          </td>
+                          <td class="left-second">
+                              <div class="QR-logo">
+
+                                  <img src="https://firebasestorage.googleapis.com/v0/b/zimo-ecomerce.appspot.com/o/ZTFR%2FGroup%208504.png?alt=media&token=a20982a6-8e53-41bd-8df8-a2eae09198f3"
+                                       alt="" height="100%">
+                              </div>
+
+                          </td>
+                          <td class="left-third">
+                              <div class="mail-logo">
+                                  <img src="https://firebasestorage.googleapis.com/v0/b/zimo-ecomerce.appspot.com/o/ZTFR%2FGroup%206140.png?alt=media&token=52a6e386-2015-43db-8287-3123e8e68319"
+                                       alt="" height="100%">
+                              </div>
+
+                          </td>
+                          <td class="middle">
+                              <div class="wahtsapp-logo">
+                                  <img src="https://firebasestorage.googleapis.com/v0/b/zimo-ecomerce.appspot.com/o/ZTFR%2FGroup%206139.png?alt=media&token=4c0d7b06-5496-4ae3-ad03-85e24457e5d1"
+                                       alt="" height="100%">
+                              </div>
+
+                          </td>
+                          <td class="right-third">
+                              <div class="message-logo">
+                                  <img src="https://firebasestorage.googleapis.com/v0/b/zimo-ecomerce.appspot.com/o/ZTFR%2FGroup%206138.png?alt=media&token=79e53b12-af3a-4c16-8a9b-79b01535f477"
+                                       alt="" height="100%">
+                              </div>
+
+                          </td>
+                          <td class="left-second">
+                              <div class="facebook-logo">
+                                  <img src="https://firebasestorage.googleapis.com/v0/b/zimo-ecomerce.appspot.com/o/ZTFR%2FGroup%206137.png?alt=media&token=175169da-b512-4dea-ab9f-ca1923ef940e"
+                                       alt="" height="100%">
+                              </div>
+
+                          </td>
+                          <td class="left-thord">
+                              <div class="twitter-logo">
+                                  <img src="https://firebasestorage.googleapis.com/v0/b/zimo-ecomerce.appspot.com/o/ZTFR%2FGroup%206136.png?alt=media&token=4c540e2e-eaef-4f86-9995-22878ce8147c"
+                                       alt="" height="100%">
+                              </div>
+
+                          </td>
+                      </tr>
+
+                  </table>
+                  <div class="big-img">
+                      <img src="https://firebasestorage.googleapis.com/v0/b/zimo-ecomerce.appspot.com/o/ZTFR%2FGroup%208526.png?alt=media&token=aa78a471-6b87-429c-9f34-7ce359357865" alt="" height="100%">
+                  </div>
+              </div>
+
+          </div>
+
+          <div class="control-container">
+              <p class="f-15 m-50 spacing uppercase start">control</p>
+              <p class="f-12 m-50 spacing-1 uppercase center">
+                  sent the wrong version? forget to include someone? with unlimited storage for sent
+                  files, and with multiple options on how to share, you can easily go back and manage
+                  your ZTFR's upto 7 days after you send them. it's that easy.
+              </p>
+              <div class="control-img m-50">
+                  <img src="https://firebasestorage.googleapis.com/v0/b/zimo-ecomerce.appspot.com/o/ZTFR%2FGroup%206173.png?alt=media&token=392dfe38-87ac-4059-9ffc-b8a465a3fa04" alt="" height="100%">
+              </div>
+
+          </div>
+          <div class="logo-container m-50">
+              <div class="first-logo">
+
+                  <img src="https://firebasestorage.googleapis.com/v0/b/zimo-ecomerce.appspot.com/o/ZTFR%2FGroup%204852.png?alt=media&token=92bf1be1-b102-4c5b-b23f-b80113cdb2f0" alt="" height="100%">
+              </div>
+              <div class="second-logo">
+                  <img src="https://firebasestorage.googleapis.com/v0/b/zimo-ecomerce.appspot.com/o/ZTFR%2FGroup%206175.png?alt=media&token=9b0de1fa-e95f-458c-903f-ac6bc8aa7217" alt="" height="40%">
+              </div>
+
+          </div>
+          <div class="lock-container m-20">
+                 <p class="f-6 spacing uppercase center"><img src="https://firebasestorage.googleapis.com/v0/b/zimo-ecomerce.appspot.com/o/ZTFR%2FPath%2027216.png?alt=media&token=ea7dd814-6c77-4cb7-97be-4f0eb9da32cf" alt="" height="4%">zitransfer using advanced encryption standard (aed) 256 bit to protect the confidentiality of the data you upload</p>
+          </div>
+
+          <div class="our-brand">
+              <hr>
+              <p class="f-10 uppercase center spacing-1">our brand</p>
+
+
+                     <div class="brand-table">
+                          <div class="ztfr-logo">
+
+                              <img src="https://firebasestorage.googleapis.com/v0/b/zimo-ecomerce.appspot.com/o/ZTFR%2FGroup%206119.png?alt=media&token=82bf5e91-c6bf-4a07-bd41-5cb6eca652fa"
+                                   alt="" height="100%">
+                          </div>
+
+                          <div class="meet-logo">
+
+                              <img src="https://firebasestorage.googleapis.com/v0/b/zimo-ecomerce.appspot.com/o/ZTFR%2FGroup%206127.png?alt=media&token=a752922c-fcad-4e36-ad43-7c30d84c86c2"
+                                   alt="" height="100%">
+                          </div>
+
+
+                          <div class="zimo-logo">
+                              <img src="https://firebasestorage.googleapis.com/v0/b/zimo-ecomerce.appspot.com/o/ZTFR%2FGroup%206121.png?alt=media&token=bde7d4e9-1f42-41df-aef7-cc73904d69d2"
+                                   alt="" height="100%">
+                          </div>
+
+
+                          <div class="zdoc-logo">
+                              <img src="https://firebasestorage.googleapis.com/v0/b/zimo-ecomerce.appspot.com/o/ZTFR%2FGroup%206125.png?alt=media&token=568bb250-59df-48c3-839a-172e4a4bf7872"
+                                   alt="" height="100%">
+                          </div>
+
+
+
+                          <div class="AI-logo">
+                              <img src="https://firebasestorage.googleapis.com/v0/b/zimo-ecomerce.appspot.com/o/ZTFR%2FGroup%206123.png?alt=media&token=d5f7db85-932d-4c7a-9bff-00bcf7e3a97c"
+                                   alt="" height="100%">
+                          </div>
+
+
+                     </div>
+
+
+              <hr>
+
+          </div>
+          <div>
+              <p class="f-12 m-20 uppercase spacing-1 center">
+                  you received the is because you subscribed to  update from zitransfer. if you no longer
+                  wish to receive updates you can disable them from within you ztfr user id account.
+              </p>
+          </div>
+
+          <div class="footer">
+              <div class="footer-first-logo m-20">
+                  <img src="https://firebasestorage.googleapis.com/v0/b/zimo-ecomerce.appspot.com/o/ZTFR%2Fdfd.png?alt=media&token=eec6f601-e38a-47e1-917d-4c1b4185c799" alt="" height="10%">
+              </div>
+              <div class="footer-explanation">
+                  <span class="f-10 copy uppercase center">zimo group</span>
+                  <span class="f-10 copy uppercase center">london</span>
+                  <span class="f-10 copy uppercase center">united kingdom</span>
+                  <span class="f-8 copy uppercase center"><img src="https://firebasestorage.googleapis.com/v0/b/zimo-ecomerce.appspot.com/o/ZTFR%2FGroup%206116.png?alt=media&token=396d3a48-0b35-4559-ac75-42f353ada901" alt="" height="30%"></span>
+
+              </div>
+
+              <div class="footer-second-logo m-20">
+                  <img src="https://firebasestorage.googleapis.com/v0/b/zimo-ecomerce.appspot.com/o/ZTFR%2Fffd.png?alt=media&token=32a9934b-4e70-41a2-917e-e50015530e23" alt="" height="40%">
+              </div>
+              <div class=footer-explanation>
+                  <span class="f-10 copy uppercase center">copyright@2024</span>
+                  <span class="f-10 copy uppercase center">zimo group</span>
+                  <span class="f-10 copy uppercase center">all rights reserved</span>
+
+              </div>
+
+
+          </div>
+
+      </div>
+  </main>
+</body>
+
+</html>
